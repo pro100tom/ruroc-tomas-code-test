@@ -90,7 +90,7 @@ class UpdateOrderEmailCommand extends Command
         $questionHelper = $this->getHelper('question');
         $answer = $questionHelper->ask($input, $output, new Question("{$this->getEnterOrderIdMessage()}: "));
 
-        // The next block of code should be abstracted out into a service;
+        // Todo: The next block of code should be abstracted out into a service;
         // not implemented in here due to simplification reasons.
         /** @var SearchCriteriaBuilder $searchCriteriaBuilder */
         $searchCriteriaBuilder = $this->searchCriteriaBuilderFactory->create();
@@ -118,12 +118,12 @@ class UpdateOrderEmailCommand extends Command
         $output->writeln(sprintf($this->getResultFoundMessage(), $totalCount));
         $answer = $questionHelper->ask($input, $output, new Question("{$this->getUpdateEmailMessage()}: "));
         foreach ($orders as $order) {
-            // A little validation won't hurt here.
+            // Todo: A little validation won't hurt here.
             $order->setCustomerEmail($answer);
             try {
                 $this->orderRepository->save($order);
             } catch (Exception $e) {
-                // Log or output this, depending on the requirements.
+                // Todo: Log or output this, depending on the requirements.
             }
         }
 
@@ -159,7 +159,7 @@ class UpdateOrderEmailCommand extends Command
      */
     protected function getNoResultsFoundMessage()
     {
-        return 'No orders found.';
+        return 'No orders found';
     }
 
     /**
@@ -167,6 +167,6 @@ class UpdateOrderEmailCommand extends Command
      */
     protected function getResultFoundMessage()
     {
-        return '%s result(s) found.';
+        return '%s result(s) found';
     }
 }
