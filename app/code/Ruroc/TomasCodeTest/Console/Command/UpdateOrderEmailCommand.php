@@ -110,12 +110,12 @@ class UpdateOrderEmailCommand extends Command
 
         $totalCount = $orders->getTotalCount();
         if ($totalCount === 0) {
-            $output->writeln($this->getNoResultsFoundMessage());
+            $output->writeln($this->getNoOrdersFoundMessage());
 
             return;
         }
 
-        $output->writeln(sprintf($this->getResultFoundMessage(), $totalCount));
+        $output->writeln(sprintf($this->getOrderWasFoundMessage(), $totalCount));
         $answer = $questionHelper->ask($input, $output, new Question("{$this->getUpdateEmailMessage()}: "));
         foreach ($orders as $order) {
             // Todo: A little validation won't hurt here.
@@ -126,7 +126,7 @@ class UpdateOrderEmailCommand extends Command
                 // Todo: Log or output this, depending on the requirements.
             }
         }
-        
+
         // Todo: this to be changed depending on whether everything went smoothly.
         $output->writeln(sprintf($this->getUpdateSuccessMessage(), $totalCount));
     }
@@ -158,7 +158,7 @@ class UpdateOrderEmailCommand extends Command
     /**
      * @return string
      */
-    protected function getNoResultsFoundMessage()
+    protected function getNoOrdersFoundMessage()
     {
         return 'No orders found';
     }
@@ -166,7 +166,7 @@ class UpdateOrderEmailCommand extends Command
     /**
      * @return string
      */
-    protected function getResultFoundMessage()
+    protected function getOrderWasFoundMessage()
     {
         return '%s order(s) found';
     }
