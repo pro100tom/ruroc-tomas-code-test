@@ -75,7 +75,7 @@ class UpdateOrderEmailCommand extends Command
     protected function configure()
     {
         $this->setName('ruroc:tomas-code-test:update-order-email');
-        $this->setDescription('Updates email address associated with the order.');
+        $this->setDescription('Updates email address associated with the order');
     }
 
     /**
