@@ -1,0 +1,23 @@
+{
+  "name": "ruroc/tomas-code-test",
+  "description": "The module is responsible for updating order customer email values through command line interface.",
+  "require": {
+    "php": "~7.1.0|~7.2.0|7.3.0"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ruroc\\TomasCodeTest\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "Tomas Baranauskas",
+      "email": "tomas.baranauskas@efendi.lt"
+    }
+  ]
+}
