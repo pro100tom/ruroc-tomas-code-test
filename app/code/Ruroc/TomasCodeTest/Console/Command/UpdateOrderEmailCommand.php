@@ -126,7 +126,8 @@ class UpdateOrderEmailCommand extends Command
                 // Todo: Log or output this, depending on the requirements.
             }
         }
-
+        
+        // Todo: this to be changed depending on whether everything went smoothly.
         $output->writeln(sprintf($this->getUpdateSuccessMessage(), $totalCount));
     }
 
@@ -151,7 +152,7 @@ class UpdateOrderEmailCommand extends Command
      */
     protected function getUpdateSuccessMessage()
     {
-        return '%s record(s) have been successfully updated';
+        return '%s order(s) have been successfully updated';
     }
 
     /**
@@ -167,6 +168,6 @@ class UpdateOrderEmailCommand extends Command
      */
     protected function getResultFoundMessage()
     {
-        return '%s result(s) found';
+        return '%s order(s) found';
     }
 }
